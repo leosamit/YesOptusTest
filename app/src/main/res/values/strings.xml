@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">YesOptusTest</string>
+    <string name="scenario_home">Home Scenario</string>
+    <string name="scenario_one">Scenario One</string>
+    <string name="viewpager_click">For ViewPager Click Me</string>
+    <string name="textview_one">TextView 1</string>
+    <string name="textview_two">TextView 2</string>
+    <string name="textview_three">TextView 3</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+</resources>

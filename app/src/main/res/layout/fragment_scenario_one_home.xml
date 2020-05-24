@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.samit.yesoptustest.data.OptusUI" />
+
+        <import type="android.view.View" />
+
+        <import type="java.util.List" />
+
+        <variable
+            name="items"
+            type="List&lt;OptusUI>" />
+
+        <variable
+            name="handler"
+            type="com.samit.yesoptustest.util.ClickHandler" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/MatchWrapParentStyle">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_point_items"
+                style="@style/MatchWrapParentStyle"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:pointItems="@{items}"
+                tools:listitem="@layout/item_scenarioone_point_one"
+                tools:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_viewpager"
+                style="@style/MatchWrapParentStyle"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:background="@color/colorAccent"
+                android:text="@string/viewpager_click"
+                android:textColor="@color/textColor"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_point_items"
+                tools:text="@string/viewpager_click" />
+
+            <View
+                android:id="@+id/divider_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_viewpager" />
+
+            <TextView
+                android:id="@+id/tv_one"
+                style="@style/WrapContentStyle.TextStyleBlack"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:text="@string/textview_one"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_viewpager"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tv_two"
+                style="@style/WrapContentStyle.TextStyleBlack"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:text="@string/textview_two"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_one"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tv_three"
+                style="@style/WrapContentStyle.TextStyleBlack"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:text="@string/textview_three"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_two"
+                tools:text="@string/app_name" />
+
+            <View
+                android:id="@+id/divider_textview"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_three" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/btn_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingBottom="@dimen/card_view_margin"
+                app:constraint_referenced_ids="btn_color_one,btn_color_two,btn_color_three"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_textview" />
+
+            <Button
+                android:id="@+id/btn_color_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_view_margin"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:background="@color/colorRed"
+                android:onClick="@{(view)->handler.onBottonClick(view)}"
+                android:text="@string/red"
+                android:textColor="@color/textColor"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_textview"
+                app:strokeWidth="2dp"
+                tools:text="@string/red" />
+
+            <Button
+                android:id="@+id/btn_color_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:background="@color/colorAccent"
+                android:onClick="@{(view)->handler.onBottonClick(view)}"
+                android:text="@string/blue"
+                android:textColor="@color/textColor"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toRightOf="@+id/btn_color_one"
+                app:layout_constraintRight_toLeftOf="@+id/btn_color_three"
+                app:layout_constraintTop_toBottomOf="@+id/divider_textview"
+                app:strokeWidth="2dp"
+                tools:text="@string/blue" />
+
+            <Button
+                android:id="@+id/btn_color_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:background="@color/colorGreen"
+                android:onClick="@{(view)->handler.onBottonClick(view)}"
+                android:text="@string/green"
+                android:textColor="@color/textColor"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_textview"
+                app:strokeWidth="2dp"
+                tools:text="@string/green" />
+
+            <View
+                android:id="@+id/divider_btn"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_color_three" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
