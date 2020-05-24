@@ -50,6 +50,10 @@ buildscript {
         testRulesVersion = "1.1.1"
 
         multidex="1.0.3"
+
+        //ViewPager
+        viewpager = "1.0.0-beta02"
+        vpIndicator = "2.1.2"
     }
 
     repositories {

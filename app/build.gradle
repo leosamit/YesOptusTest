@@ -79,6 +79,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid"
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin"
 
+    //ViewPager
+    implementation "androidx.viewpager2:viewpager2:$rootProject.viewpager"
+    implementation "me.relex:circleindicator:$rootProject.vpIndicator"
+
     // Testing dependencies
     testImplementation "junit:junit:$rootProject.junitVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.mockwebserverVersion"

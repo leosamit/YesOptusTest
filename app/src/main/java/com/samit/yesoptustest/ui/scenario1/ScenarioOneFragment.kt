@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.ActionBar
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.samit.yesoptustest.MainActivity
 import com.samit.yesoptustest.R
 import com.samit.yesoptustest.databinding.FragmentScenarioOneHomeBinding
 import com.samit.yesoptustest.di.injectViewModel
 import com.samit.yesoptustest.ui.ScenarioViewModel
+import com.samit.yesoptustest.ui.scenario1.point2.SPointTwoFragment
 import com.samit.yesoptustest.util.ClickHandler
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_scenario_one_home.*
@@ -32,6 +35,8 @@ class ScenarioOneFragment : DaggerFragment(), ClickHandler {
     private val actionBar: ActionBar?
         get() = (activity as? MainActivity)?.supportActionBar
 
+    private val NUM_PAGES = 4
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,6 +50,13 @@ class ScenarioOneFragment : DaggerFragment(), ClickHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUI()
+        setViewPager()
+    }
+
+    private fun setViewPager() {
+        val pagerAdapter = ScreenSlidePagerAdapter(this)
+        binding.viewpager.adapter = pagerAdapter
+        binding.indicator.setViewPager(binding.viewpager)
     }
 
     private fun initUI() {
@@ -87,5 +99,17 @@ class ScenarioOneFragment : DaggerFragment(), ClickHandler {
 
             binding.btnColorThree.id -> binding.btnContainer.setBackgroundColor(resources.getColor(R.color.colorGreen))
         }
+    }
+
+    private inner class ScreenSlidePagerAdapter(fa: DaggerFragment) : FragmentStateAdapter(fa) {
+        override fun getItemCount(): Int = NUM_PAGES
+
+        override fun createFragment(position: Int) =
+            SPointTwoFragment().newInstance(position + 1) as Fragment
+
+        /*override fun getItemViewType(position: Int): Int {
+            return super.getItemViewType(position)
+        }*/
+
     }
 }
