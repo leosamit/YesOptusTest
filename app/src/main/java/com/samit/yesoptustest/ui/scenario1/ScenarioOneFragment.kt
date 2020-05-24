@@ -69,6 +69,7 @@ class ScenarioOneFragment : DaggerFragment(), ClickHandler {
         }
         viewModel = injectViewModel(viewModelFactory)
         binding.executePendingBindings()
+        binding.textForTextview4 = resources.getString(R.string.tv_click_replace)
         binding.items = viewModel.scenariosOneItems
 
         rv_point_items.layoutManager = LinearLayoutManager(
@@ -79,14 +80,7 @@ class ScenarioOneFragment : DaggerFragment(), ClickHandler {
 
         (rv_point_items.adapter as? PointOneItemAdapter)?.run {
             itemClicks.subscribe {
-                when (it.id) {
-                    1 -> {
-                    }
-
-                    2 -> {
-                    }
-
-                }
+                binding.textForTextview4 = it.text
             }
         }
     }
