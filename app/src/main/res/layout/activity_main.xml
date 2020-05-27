@@ -19,4 +19,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bn_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bn_height"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        app:elevation="@dimen/tb_elevation"
+        app:itemBackground="@drawable/bottom_nav_item_background"
+        app:itemIconSize="26dp"
+        app:itemIconTint="@drawable/bottom_nav_item_color_selector"
+        app:itemTextAppearanceActive="@style/BottomBarText"
+        app:itemTextAppearanceInactive="@style/BottomBarText"
+        app:itemTextColor="@drawable/bottom_nav_item_color_selector"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_insetEdge="bottom"
+        app:menu="@menu/bottom_nav_main" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

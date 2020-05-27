@@ -29,7 +29,11 @@
     <style name="WrapContentStyle.TextStyleBlack">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/text_size</item>
+    </style>
 
+    <style name="BottomBarText">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="ImageStyle">

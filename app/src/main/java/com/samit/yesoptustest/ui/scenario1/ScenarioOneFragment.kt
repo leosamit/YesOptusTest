@@ -8,7 +8,6 @@ import androidx.appcompat.app.ActionBar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.samit.yesoptustest.MainActivity
@@ -30,7 +29,7 @@ class ScenarioOneFragment : DaggerFragment(), ClickHandler {
 
     private lateinit var binding: FragmentScenarioOneHomeBinding
 
-    private val args by navArgs<ScenarioOneFragmentArgs>()
+    //private val args by navArgs<ScenarioOneFragmentArgs>()
 
     private val actionBar: ActionBar?
         get() = (activity as? MainActivity)?.supportActionBar
@@ -63,9 +62,6 @@ class ScenarioOneFragment : DaggerFragment(), ClickHandler {
         binding.handler = this
         actionBar?.apply {
             title = getString(R.string.scenario_one)
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
-            setHomeButtonEnabled(true)
         }
         viewModel = injectViewModel(viewModelFactory)
         binding.executePendingBindings()

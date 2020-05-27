@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.samit.yesoptustest.api.ApiKeys.Companion.ENDPOINT
 import com.samit.yesoptustest.api.OptusService
 import com.samit.yesoptustest.data.repo.Repository
+import com.samit.yesoptustest.data.source.RemoteDataSource
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -66,6 +67,15 @@ class NetworkModule {
 
     @Singleton
     @Provides
+    fun provideRemoteDataSource(service: OptusService) =
+        RemoteDataSource(service)
+
+    @Singleton
+    @Provides
     fun provideRepository() = Repository()
+
+  /*  @Singleton
+    @Provides
+    fun provideTransportRepository() = TransportRepository()*/
 
 }

@@ -3,56 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/scenarioFragment">
+    app:startDestination="@id/scenarioOneNavigation">
 
-    <fragment
-        android:id="@+id/scenarioFragment"
-        android:name="com.samit.yesoptustest.ui.ScenarioFragment"
-        android:label="ScenarioFragment"
-        tools:layout="@layout/fragment_scenario">
+    <navigation
+        android:id="@+id/scenarioOneNavigation"
+        app:startDestination="@id/scenario1Fragment">
 
-        <action
-            android:id="@+id/navigatetoScenarioOne"
-            app:destination="@id/scenario1Fragment" />
+        <fragment
+            android:id="@+id/scenario1Fragment"
+            android:name="com.samit.yesoptustest.ui.scenario1.ScenarioOneFragment"
+            android:label="Scenario1Fragment"
+            tools:layout="@layout/fragment_scenario_one_home">
+            <!--<argument
+                android:name="scenario"
+                app:argType="com.samit.yesoptustest.data.OptusUI" />-->
 
-        <action
-            android:id="@+id/navigatetoScenarioTwo"
-            app:destination="@id/scenario2Fragment" />
+        </fragment>
 
-    </fragment>
-    <fragment
-        android:id="@+id/scenario1Fragment"
-        android:name="com.samit.yesoptustest.ui.scenario1.ScenarioOneFragment"
-        android:label="Scenario1Fragment"
-        tools:layout="@layout/fragment_scenario_one_home">
-        <argument
-            android:name="scenario"
-            app:argType="com.samit.yesoptustest.data.OptusUI" />
+    </navigation>
 
-        <action
-            android:id="@+id/navigatetoPoint1"
-            app:destination="@id/scenario1Point1" />
+    <navigation
+        android:id="@+id/scenarioTwoNavigation"
+        app:startDestination="@id/scenario2Fragment">
+        <fragment
+            android:id="@+id/scenario2Fragment"
+            android:name="com.samit.yesoptustest.ui.scenario2.ScenarioTwoFragment"
+            android:label="Scenario2Fragment"
+            tools:layout="@layout/fragment_scenario_two_home">
+            <argument
+                android:name="scenario"
+                app:argType="com.samit.yesoptustest.data.OptusUI" />
+        </fragment>
 
-    </fragment>
-
-    <fragment
-        android:id="@+id/scenario1Point1"
-        android:name="com.samit.yesoptustest.ui.scenario1.point1.SPointOneFragment"
-        android:label="Scenario2Fragment"
-        tools:layout="@layout/fragment_scenario">
-        <argument
-            android:name="scenario"
-            app:argType="com.samit.yesoptustest.data.OptusUI" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/scenario2Fragment"
-        android:name="com.samit.yesoptustest.ui.scenario2.ScenarioTwoFragment"
-        android:label="Scenario2Fragment"
-        tools:layout="@layout/fragment_scenario_two_home">
-        <argument
-            android:name="scenario"
-            app:argType="com.samit.yesoptustest.data.OptusUI" />
-    </fragment>
+    </navigation>
 
 </navigation>
